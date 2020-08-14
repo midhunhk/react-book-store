@@ -1,6 +1,11 @@
 import React, {Component} from 'react'
 import BooksDataService from '../api/BooksDataService'
 
+/**
+ * The Parent BookStore Component
+ * 
+ * The child components could have been moved into their separate files, but ..
+ */
 class BookStore extends Component {
 
     constructor(props){
@@ -16,7 +21,7 @@ class BookStore extends Component {
     updateSearchTerm = (value) => {
         // Do Search in the parent component
         if(value !== ""){
-            // Rest API Call here
+            // Rest API Call made here
             BooksDataService.searchWithTitle(value)
             .then( res => {
                 this.setState({
@@ -43,8 +48,13 @@ class BookStore extends Component {
         })
     }
 
-    backToResults = () => {
-        this.setState({ screen:"results"})
+    backToResults = () => this.navigateToScreen("results", "results")
+
+    navigateToScreen = (screenName, location) => {
+        this.setState({ screen: screenName})
+
+        // TODO: add page name to history with something like
+        // this.props.history.push("/" + location)
     }
 
     render(){
@@ -52,7 +62,9 @@ class BookStore extends Component {
             <div className="container BookStore">
                 <HeaderComponent />
                 <SearchComponent updateSearchTerm={this.updateSearchTerm} />
-                
+                {
+                    // screen states are managed here, not the best solution
+                }
                 {this.state.screen === "results" 
                         && <ResultsComponent result={this.state.books} 
                                 searchTerm={this.state.searchTerm}
@@ -66,11 +78,12 @@ class BookStore extends Component {
     }
 }
 
-
+/**
+ * The Search Component
+ */
 class SearchComponent extends Component {
     constructor(){
         super()
-
         this.state = {
             searchTerm: ''
         }
@@ -115,7 +128,6 @@ class SearchComponent extends Component {
 class ResultsComponent extends Component {
     constructor(props){
         super(props)
-        console.log(`ResultsComponent ctor ${this.props.searchTerm}`)
         this.state = {
             searchTerm: this.props.searchTerm,
             books: this.props.result
@@ -123,7 +135,6 @@ class ResultsComponent extends Component {
     }
 
     static getDerivedStateFromProps(props, state){
-        console.log(`ResultsComponent ${props.searchTerm}`)
         if(props.searchTerm !== state.searchTerm){
             return {
                 searchTerm: props.searchTerm,
@@ -180,7 +191,6 @@ class CardComponent extends Component {
         )
     }
 }
-
 
 class BookDetailsComponent extends Component {
     render(){
