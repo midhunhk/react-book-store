@@ -43,6 +43,10 @@ class BookStore extends Component {
         })
     }
 
+    backToResults = () => {
+        this.setState({ screen:"results"})
+    }
+
     render(){
         return (
             <div className="container BookStore">
@@ -53,7 +57,7 @@ class BookStore extends Component {
                         && <ResultsComponent result={this.state.books} 
                                 searchTerm={this.state.searchTerm}
                                 showBookDetails={this.showBookDetails}/>}
-                {this.state.screen === "details" && <BookDetailsComponent selectedBook={this.state.selectedBook} />}
+                {this.state.screen === "details" && <BookDetailsComponent selectedBook={this.state.selectedBook} backToResults={this.backToResults}/>}
                 {this.state.screen === "error" && <ErrorComponent searchTerm={this.state.searchTerm} />}
                 
                 <FooterComponent />
@@ -182,6 +186,9 @@ class BookDetailsComponent extends Component {
     render(){
         return (
             <section className="section">
+                <div className="content has-left-text is-clearfix">
+                    <button className="button is-text is-pulled-left" onClick={this.props.backToResults}>Back to Results</button>
+                </div>
                 <div className="container">
                 <article className="media">
                     <figure className="media-left">
