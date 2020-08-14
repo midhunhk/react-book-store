@@ -16,3 +16,14 @@ This Single Page Application (SPA) accomplishes the following items
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Screenshots
+Bulma is very easy to use and supports responsive design out of the box.
+
+<img src="screenshots/bookstore_mobile.png"> 
+<img src="screenshots/bookstore_desktop.png">
+
+### Design Concept
+The application is visualized in the below concept.
+
+<img src="screenshots/bookstore_design_concept.png">
