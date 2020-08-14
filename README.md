@@ -1,4 +1,4 @@
-# react-book-store
+<img src="public/logo.png">
 This is a basic ReactJS web application that allows to search and list the details of books using a REST API.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), 
