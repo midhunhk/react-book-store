@@ -221,7 +221,7 @@ function HeaderComponent() {
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <p className="navbar-item">
-                        The BookStore
+                        <img src="/logo.png" alt="BookStore" />
                     </p>
 
                     <button className="navbar-burger" aria-label="menu" aria-expanded="false">
