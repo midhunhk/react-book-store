@@ -14,12 +14,9 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.3"
   },
-  "devDependencies": {
-    "serve": "^11.3.2"
-  },
   "scripts": {
     "dev-server": "webpack-dev-server --open",
-    "start": "serve -s build",
+    "start": "node server.js",
     "build": "react-scripts build",
     "heroku-postbuild": "npm run build",
     "dev-start": "react-scripts start",
