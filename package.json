@@ -8,17 +8,21 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bulma": "^0.9.0",
+    "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.3"
   },
+  "devDependencies": {
+    "serve": "^11.3.2"
+  },
   "scripts": {
     "dev-server": "webpack-dev-server --open",
-    "start": "node server.js",
+    "start": "serve -s build",
+    "build": "react-scripts build",
     "heroku-postbuild": "npm run build",
     "dev-start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

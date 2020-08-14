@@ -1,2 +1,1 @@
-web: npm i -g serve
-web: serve -s build
+web: npm run start
