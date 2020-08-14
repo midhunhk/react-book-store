@@ -16,10 +16,9 @@
   "scripts": {
     "dev-server": "webpack-dev-server --open",
     "start": "node server.js",
-    "build": "webpack -p",
     "heroku-postbuild": "npm run build",
     "dev-start": "react-scripts start",
-    "react-build": "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
