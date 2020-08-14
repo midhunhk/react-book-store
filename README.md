@@ -20,7 +20,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### Screenshots
 Bulma is very easy to use and supports responsive design out of the box.
 
-<img src="screenshots/bookstore_mobile.jpg"> 
+<img src="screenshots/bookstore_mobile.jpg" width="200"> 
 <img src="screenshots/bookstore_web.png">
 
 ### Design Concept
