@@ -104,12 +104,18 @@ class SearchComponent extends Component {
 
     render(){
         return (
-            <div className="container">
-                <section className="hero is-dark">
+            <section className="has-background-info is-bold top-rounded-container">
+                <div className="hero container">
                     <div className="hero-body">
                         <div className="container">
+                            <div className="is-size-2 pt-2 has-text-weight-light">
+                                Find the book
+                            </div>
+                            <div className="is-size-2 pb-2 has-text-weight-semibold">
+                                you have been looking for...
+                            </div>
                             <div className="field is-grouped">
-                                <div className="control has-icons-left is-expanded">
+                                <div className="control is-expanded">
                                     <input type="text" className="input is-medium is-flat"
                                         placeholder="Search by book title"
                                         onChange={this.handleSearchTerm.bind(this)}/>
@@ -121,8 +127,8 @@ class SearchComponent extends Component {
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         )
     }
 }
@@ -148,8 +154,8 @@ class ResultsComponent extends Component {
 
     render(){
         return (
-            <section className="section pl-0 pr-0">
-                <div className="container has-text-left is-fluid pl-0 pr-0">
+            <section className="section container">
+                <div className="container has-text-left is-fluid">
                     <div className="columns is-multiline">
                         {
                             this.state.books.map( book => 
@@ -197,7 +203,7 @@ class CardComponent extends Component {
 class BookDetailsComponent extends Component {
     render(){
         return (
-            <section className="section">
+            <section className="section container">
                 <div className="content has-left-text is-clearfix">
                     <button className="button is-text is-pulled-left" onClick={this.props.backToResults}>Back to Results</button>
                 </div>
@@ -241,6 +247,15 @@ function HeaderComponent() {
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     </button>
+                </div>
+                <div className="navbar-end is-uppercase has-text-weight-bold">
+                    <div className="navbar-item has-text-primary">Home</div>
+                    <div className="navbar-item">About Us</div>
+                    <div className="navbar-item">Contact</div>
+                    <div className="navbar-item">Shop</div>
+                    <div className="navbar-item">
+                        <img src="/icon_search.png" alt="Search" className/>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -298,11 +313,20 @@ function SpinnerComponent() {
 
 function FooterComponent() {
     return (
-        <footer className="footer">
-            <div className="content has-text-left">
-                <p>
-                    &copy; 2020 BookStore Application.
-                </p>
+        <footer className="footer has-background-info is-bold top-rounded-container">
+            <div className="container">
+                <div className="content has-text-left">
+                    <div className="columns">
+                        <div className="column">
+                            &copy; 2020 BookStore Application.
+                        </div>
+                        <div className="column">
+                            435 Tresdale Road <br />
+                            Entertaintment District <br />
+                            Fictional City, XA 27402 <br />
+                        </div>
+                    </div>
+                </div>
             </div>
         </footer>
     )

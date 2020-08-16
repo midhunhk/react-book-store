@@ -13,6 +13,11 @@ code {
 }
 */
 
+.top-rounded-container{
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+}
+
 /*
   Spinner from https://tobiasahlin.com/spinkit/
 */

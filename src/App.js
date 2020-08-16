@@ -1,5 +1,5 @@
 import React from 'react'
-import 'bulma/css/bulma.css'
+import './css/bookstore.css'
 import BookStore from './components/BookStore'
 
 function App() {
