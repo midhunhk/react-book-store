@@ -235,7 +235,7 @@ class BookDetailsComponent extends Component {
 
 function HeaderComponent() {
     return (
-        <header className="container">
+        <header className="container pt-2 pb-2">
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <p className="navbar-item">
@@ -254,7 +254,7 @@ function HeaderComponent() {
                     <div className="navbar-item">Contact</div>
                     <div className="navbar-item">Shop</div>
                     <div className="navbar-item">
-                        <img src="/icon_search.png" alt="Search" className/>
+                        <img src="/icon_search.png" alt="Search"/>
                     </div>
                 </div>
             </nav>
@@ -282,7 +282,7 @@ function DefaultComponent() {
     return (
         <section className="section">
             <div className="container">
-                <div class="is-size-1 pt-6 pb-6">
+                <div className="is-size-1 pt-6 pb-6">
                     Start your search...
                 </div>
             </div>
@@ -295,7 +295,7 @@ function SpinnerComponent() {
         <section className="section">
             <div className="container">
                 <div className="columns is-centered">
-                    <div class="column is-one-quarter has-text-centered">
+                    <div className="column is-one-quarter has-text-centered">
                         <div className="sk-chase">
                             <div className="sk-chase-dot"></div>
                             <div className="sk-chase-dot"></div>
