@@ -172,6 +172,10 @@ class ResultsComponent extends Component {
 }
 
 class CardComponent extends Component {
+    onBuyClick = (event) => {
+        window.open(this.props.book.infoLink, "_blank")
+    }
+
     render(){
         return (
             <div className="box">
@@ -190,7 +194,7 @@ class CardComponent extends Component {
                             {this.props.book.publish_date}
                             </p>
                             <button className="button mr-2" onClick={(event) => this.props.showBookDetails(this.props.book)}>More Details</button>
-                            <button className="button is-primary">Buy</button>
+                            <button className="button is-primary" onClick={(event) => this.onBuyClick(event)}>Buy</button>
                         </div>
                     </div>
                 </article>
@@ -208,25 +212,32 @@ class BookDetailsComponent extends Component {
                     <button className="button is-text is-pulled-left" onClick={this.props.backToResults}>Back to Results</button>
                 </div>
                 <div className="container">
-                <article className="media">
-                    <figure className="media-left">
-                        <p className="image is-64x64">
-                            <img src={this.props.selectedBook.url} alt={this.props.selectedBook.title} />
-                        </p>
-                    </figure>
-                    <div className="media-content">
-                        <div className="content has-text-left">
-                            <p>
-                                <strong>{this.props.selectedBook.title}</strong> <br />
-                                <small>By {this.props.selectedBook.author}</small><br />
-                                <small>ISBN: {this.props.selectedBook.isbn}</small><br />
-                                Publisher: {this.props.selectedBook.publisher} <br />
-                                Date of Publication: {this.props.selectedBook.publish_date} <br />
-                                Number of Pages: {this.props.selectedBook.numOfPages}
-                            </p>
+                    <div className="columns">
+                        <div className="column is-half">
+                            <div className="media">
+                                <figure className="media-left">
+                                    <p className="image is-64x64">
+                                        <img src={this.props.selectedBook.url} alt={this.props.selectedBook.title} />
+                                    </p>
+                                </figure>
+                                <div className="media-content pl-5">
+                                    <div className="content has-text-left">
+                                        <p>
+                                            <strong>{this.props.selectedBook.title}</strong> <br />
+                                            <small>By {this.props.selectedBook.author}</small><br />
+                                            <small>ISBN: {this.props.selectedBook.isbn}</small><br />
+                                            Publisher: {this.props.selectedBook.publisher} <br />
+                                            Date of Publication: {this.props.selectedBook.publish_date} <br />
+                                            Number of Pages: {this.props.selectedBook.numOfPages}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="column is-half">
+                            <p>{this.props.selectedBook.description}</p>
                         </div>
                     </div>
-                    </article>
                 </div>
             </section>
         )
