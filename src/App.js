@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import 'bulma/css/bulma.css'
 import BookStore from './components/BookStore'
 

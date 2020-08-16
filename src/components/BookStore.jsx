@@ -13,7 +13,7 @@ class BookStore extends Component {
 
         this.state = {
             searchTerm: '',
-            screen: "empty",
+            screen: "default",
             selectedBook: null
         }
     }
@@ -21,36 +21,36 @@ class BookStore extends Component {
     updateSearchTerm = (value) => {
         // Do Search in the parent component
         if(value !== ""){
+            this.navigateToScreen("spinner", "spinner")
             // Rest API Call made here
             BooksDataService.searchWithTitle(value)
             .then( res => {
                 this.setState({
                     searchTerm: value,
                     books: res.data,
-                    selectedBook: null,
-                    screen: "results"
+                    selectedBook: null
                 })
+                this.navigateToScreen("results", "results")
             })
             .catch( err => {
                 console.log(err)
                 this.setState({
-                    searchTerm: value,
-                    screen: "error"
+                    searchTerm: value
                 })
+                this.navigateToScreen("error", "error")
             } )
         }
     }
 
     showBookDetails = (bookData) => {
-        this.setState({
-            selectedBook: bookData,
-            screen: "details"
-        })
+        this.setState({ selectedBook: bookData })
+        this.navigateToScreen("details", "details")
     }
 
     backToResults = () => this.navigateToScreen("results", "results")
 
     navigateToScreen = (screenName, location) => {
+        console.log(`navigateToScreen: ${screenName}`)
         this.setState({ screen: screenName})
 
         // TODO: add page name to history with something like
@@ -59,7 +59,7 @@ class BookStore extends Component {
 
     render(){
         return (
-            <div className="container BookStore">
+            <div className="BookStore">
                 <HeaderComponent />
                 <SearchComponent updateSearchTerm={this.updateSearchTerm} />
                 {
@@ -70,6 +70,8 @@ class BookStore extends Component {
                                 searchTerm={this.state.searchTerm}
                                 showBookDetails={this.showBookDetails}/>}
                 {this.state.screen === "details" && <BookDetailsComponent selectedBook={this.state.selectedBook} backToResults={this.backToResults}/>}
+                {this.state.screen === "default" && <DefaultComponent />}
+                {this.state.screen === "spinner" && <SpinnerComponent />}
                 {this.state.screen === "error" && <ErrorComponent searchTerm={this.state.searchTerm} />}
                 
                 <FooterComponent />
@@ -227,7 +229,7 @@ class BookDetailsComponent extends Component {
 
 function HeaderComponent() {
     return (
-        <header>
+        <header className="container">
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <p className="navbar-item">
@@ -259,6 +261,39 @@ class ErrorComponent extends Component {
             </section>
         )
     }
+}
+
+function DefaultComponent() {
+    return (
+        <section className="section">
+            <div className="container">
+                <div class="is-size-1 pt-6 pb-6">
+                    Start your search...
+                </div>
+            </div>
+        </section>
+    )
+}
+
+function SpinnerComponent() {
+    return (
+        <section className="section">
+            <div className="container">
+                <div className="columns is-centered">
+                    <div class="column is-one-quarter has-text-centered">
+                        <div className="sk-chase">
+                            <div className="sk-chase-dot"></div>
+                            <div className="sk-chase-dot"></div>
+                            <div className="sk-chase-dot"></div>
+                            <div className="sk-chase-dot"></div>
+                            <div className="sk-chase-dot"></div>
+                            <div className="sk-chase-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
 }
 
 function FooterComponent() {
