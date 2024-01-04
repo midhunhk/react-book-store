@@ -4,6 +4,8 @@ This is a basic ReactJS web application that allows to search and list the detai
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), 
 uses the https://bulma.io/ CSS Framework and  consumes the REST API at: https://github.com/midhunhk/sample-rest-api
 
+_Note that this app is not available in deployed form since Heroku took away the free tier_
+
 This Single Page Application (SPA) accomplishes the following items
 
 1. Search Component
